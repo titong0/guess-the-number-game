@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 
 const compareNumbers = (
   numberToGuess: string,
@@ -25,6 +24,8 @@ const compareNumbers = (
   return hint ? hint : "no numbers are correct";
 };
 
+
+
 const genNumsForHints = (amountOfHints: number): string[] => {
   const hints = new Set<string>();
 
@@ -42,4 +43,4 @@ const genNumsForHints = (amountOfHints: number): string[] => {
 const genRandom = (min: number, max: number): number => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-export { compareNumbers, genNumsForHints };
+export { compareNumbers, genNumsForHints, genRandom };

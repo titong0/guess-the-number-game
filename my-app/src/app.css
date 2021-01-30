@@ -3,13 +3,21 @@
   flex-direction: column;
   align-items: flex-start;
   margin: 10%;
-  background-color: burlywood;
+  background-color: rgb(222, 184, 135);
+}
+.game-options {
+  width: 100%;
+  background-color: rgb(163, 137, 102);
+}
+.game-options > * {
+  padding: 0.6rem;
+  margin: 1rem;
 }
 
 .number-hint {
   display: flex;
   align-items: center;
-  width: 100%;
+  padding: 0 1rem 0 4rem;
 }
 .numbers {
   display: flex;
