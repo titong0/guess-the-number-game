@@ -44,9 +44,9 @@ const formatHint = (
     return "no numbers are correct";
   } else {
     if (correctPlace === 1) {
-      message += `1 number is correct`;
+      message += `1 number is correct `;
     } else if (correctPlace > 1) {
-      message += `${correctPlace} numbers are correct`;
+      message += `${correctPlace} numbers are correct `;
     }
     if (correctButMisplaced === 1) {
       message += `1 number is misplaced`;

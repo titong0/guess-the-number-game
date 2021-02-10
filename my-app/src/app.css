@@ -62,19 +62,19 @@ html {
     margin: 3%;
   }
   .number-hint {
-    padding: 1rem 0;
+    padding: 0.5rem 0;
   }
   .numbers > * {
-    padding: 6%;
+    padding: 2%;
     margin: 0.2rem;
   }
   .numbers {
     justify-content: flex-start;
-    width: 40%;
+    width: 30%;
     border-right: 0;
   }
   .number-info {
-    width: 50%;
+    width: 70%;
   }
   .game-options > :first-child {
     width: 45%;

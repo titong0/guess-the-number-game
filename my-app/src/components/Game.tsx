@@ -52,7 +52,7 @@ const Game: React.FC = () => {
       </div>
 
       <button className="game-buttons" onClick={addHint}>
-        HINT
+        +
       </button>
 
       <div className="game-options">
@@ -63,7 +63,7 @@ const Game: React.FC = () => {
           onChange={handleChange}
         />
         <button className="game-buttons" onClick={validate}>
-          lol
+          -{">"} 
         </button>
         <button className="game-buttons" onClick={newNumber}>
           New Game
