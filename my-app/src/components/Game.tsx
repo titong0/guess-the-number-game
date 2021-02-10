@@ -1,54 +1,91 @@
-import { useState, ChangeEventHandler } from "react";
-import { genNumsForHints } from "../algorithms";
+import { useState } from "react";
+import { genNumber } from "../algorithms";
 import NumberHint from "./NumberHint";
 
 const Game: React.FC = () => {
-  const [numberToGuess, setNumberToGuess] = useState("124");
-  const [hintNumbers, setHintNumbers] = useState(genNumsForHints(1));
-  const [userValue, setUserValue] = useState("");
-  const addHint = (amount: number) => {
-    for (let i = 0; i < amount; i++) {
-      const newNum = genNumsForHints(1);
-      const prevArray = [...hintNumbers];
-      prevArray.push(...newNum);
-      setHintNumbers(prevArray);
+  const [numberToGuess, setNumberToGuess] = useState(genNumber());
+  const [hints, setHints] = useState([genNumber()]);
+  const [userGuess, setUserGuess] = useState("");
+  const [displayNumber, toggleDisplayNumber] = useState(false);
+
+  const addHint = () => {
+    let newNum = genNumber();
+    while (true) {
+      if (hints.includes(newNum)) {
+        newNum = genNumber();
+      } else break;
     }
+
+    const prevArray = [...hints];
+    prevArray.push(newNum);
+    setHints(prevArray);
   };
+
   const newNumber = (): void => {
-    setNumberToGuess(genNumsForHints(1)[0]);
-    setHintNumbers(genNumsForHints(1));
+    setNumberToGuess(genNumber());
+    setHints([genNumber()]);
   };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserValue(e.target.value);
+    setUserGuess(e.target.value);
   };
   const validate = () => {
-    if (userValue === numberToGuess) {
-      alert("lolaso");
+    if (userGuess === numberToGuess) {
+      alert("correct");
+      toggleDisplayNumber(true);
+    } else {
+      alert("incorrect");
     }
   };
   return (
     <div className="game-container">
-      {numberToGuess}
       <div className="hints-container">
-        {hintNumbers.map((i, index) => {
+        {hints.map((i, index) => {
           return (
             <NumberHint
+              key={hints[index]}
               numberToGuess={numberToGuess}
-              number={hintNumbers[index]}
+              number={hints[index]}
             />
           );
         })}
       </div>
+
+      <button className="game-buttons" onClick={addHint}>
+        HINT
+      </button>
+
       <div className="game-options">
         <input
+          className="game-buttons"
           type="text"
           placeholder="The number is"
           onChange={handleChange}
         />
-        <input type="submit" value="Check!" onClick={validate} />
-
-        <button onClick={() => newNumber()}>Generate new number</button>
-        <button onClick={() => addHint(2)}>Get new hint</button>
+        <button className="game-buttons" onClick={validate}>
+          lol
+        </button>
+        <button className="game-buttons" onClick={newNumber}>
+          New Game
+        </button>
+        <button
+          className="game-buttons"
+          onClick={() => toggleDisplayNumber(!displayNumber)}
+        >
+          Reveal number
+        </button>
+        {displayNumber ? (
+          <div className="number-reveal">the number is {numberToGuess}</div>
+        ) : (
+          ""
+        )}
+        <br />
+        <a
+          href="https://github.com/titong0/guess-the-number-game"
+          target="_blank"
+        >
+          Github
+        </a>
       </div>
     </div>
   );

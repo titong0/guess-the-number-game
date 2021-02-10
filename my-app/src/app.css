@@ -1,31 +1,31 @@
+html {
+  font-size: ;
+  background-color: rgb(138, 109, 83);
+}
 .game-container {
+  margin: 8%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 10%;
   background-color: rgb(222, 184, 135);
 }
-.game-options {
+.hints-container {
   width: 100%;
-  background-color: rgb(163, 137, 102);
-}
-.game-options > * {
-  padding: 0.6rem;
-  margin: 1rem;
 }
 
 .number-hint {
+  width: 100%;
   display: flex;
   align-items: center;
   padding: 0 1rem 0 4rem;
 }
+
 .numbers {
   display: flex;
   justify-content: flex-start;
   margin: 1% 0;
   width: 60%;
   text-align: center;
-  /* background-color: cadetblue; */
   border-right: 3px solid;
   font-size: 1.7rem;
 }
@@ -36,6 +36,56 @@
   margin: 0 6%;
 }
 .number-info {
+  font-size: 1.2rem;
   margin-left: 2%;
+  width: 40%;
+}
+.game-options {
+  width: 100%;
+  background-color: rgb(163, 137, 102);
+}
+.game-buttons {
+  border-style: none;
+  background-color: rgb(243, 220, 189);
+  border: 2px solid rgb(116, 97, 72);
+  border-radius: 10px;
   width: auto;
+  padding: 0.6rem;
+  margin: 1rem;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 5vw;
+  }
+  .game-container {
+    margin: 3%;
+  }
+  .number-hint {
+    padding: 1rem 0;
+  }
+  .numbers > * {
+    padding: 6%;
+    margin: 0.2rem;
+  }
+  .numbers {
+    justify-content: flex-start;
+    width: 40%;
+    border-right: 0;
+  }
+  .number-info {
+    width: 50%;
+  }
+  .game-options > :first-child {
+    width: 45%;
+  }
+}
+
+.number-reveal {
+  font-size: 1.3rem;
+  width: fit-content;
+  margin: 0 auto 2rem;
+  border-radius: 10px;
+  padding: 0.6rem 10%;
+  background-color: rgb(238, 206, 164);
 }
