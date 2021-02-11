@@ -1,0 +1,5 @@
+node_modules
+my-app/tsconfig.json
+.vscode/settings.json
+my-app/.eslintcache
+my-app/.eslintcache
