@@ -50,9 +50,10 @@ html {
   background-color: rgb(131, 131, 226);
 }
 .game-buttons {
+  font-size: 1rem;
   border-style: none;
-  background-color: rgb(243, 220, 189);
-  border: 2px solid rgb(116, 97, 72);
+  background-color: rgb(248, 236, 222);
+  border: 2px solid rgb(75, 66, 55);
   border-radius: 10px;
   width: auto;
   padding: 0.6rem;

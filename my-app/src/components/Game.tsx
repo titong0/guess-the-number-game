@@ -39,7 +39,8 @@ const Game: React.FC = () => {
   };
   return (
     <div className="game-container">
-      can you guess the combination?
+      <span style={{fontSize: "1.5rem"}} >can you guess the combination?</span>
+
       <div className=" example numbers">
         <div>?</div>
         <div>?</div>
@@ -67,10 +68,10 @@ const Game: React.FC = () => {
           onChange={handleChange}
         />
         <button className="game-buttons" onClick={validate}>
-          -{">"}
+          Check
         </button>
         <button className="game-buttons" onClick={newNumber}>
-          New Game
+          New game
         </button>
         <button
           className="game-buttons"
