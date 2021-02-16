@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { genNumber } from "../algorithms";
-import NumberHint from "./NumberHint";
+import Hint from "./NumberHint";
 
 const Game: React.FC = () => {
   const [numberToGuess, setNumberToGuess] = useState(genNumber());
-  const [hints, setHints] = useState([genNumber()]);
+  const [hints, setHints] = useState([genNumber(), genNumber(), genNumber()]);
   const [userGuess, setUserGuess] = useState("");
   const [displayNumber, toggleDisplayNumber] = useState(false);
 
@@ -23,7 +23,7 @@ const Game: React.FC = () => {
 
   const newNumber = (): void => {
     setNumberToGuess(genNumber());
-    setHints([genNumber()]);
+    setHints([genNumber(), genNumber(), genNumber()]);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,10 +39,16 @@ const Game: React.FC = () => {
   };
   return (
     <div className="game-container">
+      can you guess the combination?
+      <div className=" example numbers">
+        <div>?</div>
+        <div>?</div>
+        <div>?</div>
+      </div>
       <div className="hints-container">
         {hints.map((i, index) => {
           return (
-            <NumberHint
+            <Hint
               key={hints[index]}
               numberToGuess={numberToGuess}
               number={hints[index]}
@@ -50,11 +56,9 @@ const Game: React.FC = () => {
           );
         })}
       </div>
-
       <button className="game-buttons" onClick={addHint}>
-        +
+        New Hint
       </button>
-
       <div className="game-options">
         <input
           className="game-buttons"
@@ -63,7 +67,7 @@ const Game: React.FC = () => {
           onChange={handleChange}
         />
         <button className="game-buttons" onClick={validate}>
-          -{">"} 
+          -{">"}
         </button>
         <button className="game-buttons" onClick={newNumber}>
           New Game

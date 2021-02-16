@@ -1,10 +1,10 @@
 import { compareNumbers } from "../algorithms";
 
 export interface NumberHintProps {
-  numberToGuess?: string;
+  numberToGuess: string;
   number: string;
 }
-const NumberHint: React.FC<NumberHintProps> = ({ numberToGuess, number }) => {
+const Hint: React.FC<NumberHintProps> = ({ numberToGuess, number }) => {
   const [num1, num2, num3] = number.split("");
 
   return (
@@ -19,4 +19,4 @@ const NumberHint: React.FC<NumberHintProps> = ({ numberToGuess, number }) => {
   );
 };
 
-export default NumberHint;
+export default Hint;
